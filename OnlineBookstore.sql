@@ -13,6 +13,8 @@ CREATE TABLE Books (
     Price NUMERIC(10, 2),
     Stock INT
 );
+SELECT current_database();
+
 DROP TABLE IF EXISTS customers;
 CREATE TABLE Customers (
     Customer_ID SERIAL PRIMARY KEY,
@@ -38,20 +40,19 @@ SELECT * FROM Orders;
 
 
 -- Import Data into Books Table
-COPY Books(Book_ID, Title, Author, Genre, Published_Year, Price, Stock) 
-FROM 'C:\Users\Public\New folderrr\Books.csv' 
-CSV HEADER;
+--CSV data imported using \copy in SQL Shell (psql)
+--Example:
+--\copy books FROM 'C:/Users/hp/OneDrive/Desktop/online-bookstore-sql-project/Books.csv' WITH(FORMAT CSV, HEADER true)
 
 -- Import Data into Customers Table
-COPY Customers(Customer_ID, Name, Email, Phone, City, Country) 
-FROM 'C:\Users\Public\New folderrr\Customers.csv' 
-CSV HEADER;
+--CSV data imported using \copy in SQL Shell (psql)
+--Example:
+--\copy customers FROM 'C:/Users/hp/OneDrive/Desktop/online-bookstore-sql-project/Customers.csv' WITH(FORMAT CSV, HEADER true)
 
 -- Import Data into Orders Table
-COPY Orders(Order_ID, Customer_ID, Book_ID, Order_Date, Quantity, Total_Amount) 
-FROM 'C:\Users\Public\New folderrr\Orders.csv' 
-CSV HEADER;
-
+--CSV data imported using \copy in SQL Shell (psql)
+--Example:
+--\copy orders FROM 'C:/Users/hp/OneDrive/Desktop/online-bookstore-sql-project/Orders.csv' WITH(FORMAT CSV, HEADER true)
 
 -- 1) Retrieve all books in the "Fiction" genre:
 
